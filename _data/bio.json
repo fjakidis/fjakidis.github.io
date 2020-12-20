@@ -1,0 +1,240 @@
+{
+  "basics": {
+    "name": "Jason Fakidis",
+    "label": "Electrical and Computer Engineer",
+    "picture": "https://techfolios.github.io/template/images/molly.png",
+    "email": "jason@jasonfakidis.com",
+    "phone": "604-868-3435",
+    "website": "www.jasonfakidis.com",
+    "summary": "Recent graduate in electrical and computer engineering from the University of British Columbia",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Vancouver",
+      "countryCode": "Canada",
+      "region": "British Columbia,"
+    },
+    "profiles": [
+      {
+        "network": "github",
+        "username": "mmaluhia",
+        "url": "http://github.com/changeme"
+      },
+      {
+        "network": "linkedin",
+        "username": "mollymaluhia",
+        "url": "http://linkedin.com/in/changeme"
+      },
+      {
+        "network": "twitter",
+        "username": "mollymal",
+        "url": "http://twitter.com/changeme"
+      },
+      {
+        "network": "instagram",
+        "username": "molly",
+        "url": "http://instagram.com/changeme"
+      }
+    ]
+  },
+  "interests": [
+    {
+      "name": "internet of things",
+      "keywords": [
+        "Arduino",
+        "TI MSP430"
+      ]
+    },
+    {
+      "name": "data mining",
+      "keywords": [
+      ]
+    },
+    {
+      "name": "artificial intelligence",
+      "keywords": [
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages and Frameworks",
+      "level": "",
+      "keywords": [
+        "C",
+        "C++",
+        "Java",
+        "Javascript",
+        "Assembly",
+        "Common Lisp"
+      ]
+    },
+    {
+      "name": "Toolsets/OS",
+      "level": "",
+      "keywords": [
+        "MacOS",
+        "Ubuntu",
+        "Git/GitHub",
+        "g++",
+        "TI LaunchPad"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of British Columbia (Vancouver, Canada)",
+      "area": "Electrical Engineering",
+      "studyType": "B.Apsc",
+      "startDate": "2016-09",
+      "endDate": "2021-05",
+      "gpa": "",
+      "courses": [
+      ]
+    },
+    {
+      "institution": "Capilano University (Vancouver, Canada)",
+      "area": "Jazz Studies",
+      "studyType": "Diploma",
+      "startDate": "2014-09",
+      "endDate": "2015-05",
+      "gpa": "",
+      "courses": [
+      ]
+    }
+  ],
+  "work": [
+    {
+      "company": "BC Hydro",
+      "position": "Internship (Engineering, Business Management)",
+      "website": "https://www.bchydro.com/",
+      "startDate": "2019-08",
+      "endDate": "2020-05",
+      "summary": "",
+      "highlights": [
+        "Self started a new intranet website from scratch by designing the complete information architecture and layout",
+        "Optimized vehicle quality control process by conducting a Structured Decision Making (SDM) study. Researched and implemented an optial solution for handwritten digitization and organization of quality control documents",
+        "Coordinated strategic meetings withs managers two and three levels above my position to communicate best practices for website design and to inform on technial matters"
+      ]
+    },
+    {
+      "company": "National Project Management",
+      "position": "Website Management",
+      "website": "http://www.nationalpm.net/",
+      "startDate": "2018-05",
+      "endDate": "2020-09",
+      "summary": "",
+      "highlights": [
+        "Conducted 2 weekly migrations from a local developement environment to a live server ensuring accuracy in a self-directed environment",
+        "Modifiet HTML and CSS files within an existing Wordpress theme for customization saving hundreds of dollars in consulting fees",
+        "Provided technical guidance to management for better decision making"
+      ]
+    },
+    {
+      "company": "Stewart Blusson Quantum Matter Institute",
+      "position": "Research Assistant (Physics)",
+      "website": "https://qmi.ubc.ca/",
+      "startDate": "2017-05",
+      "endDate": "2017-09",
+      "summary": "",
+      "highlights": [
+        "Designed and produced a complete set of mechanical designs for an optical transmission system for particle beam imaging compatible with ultra high vaccuum while working closely with on-site design engineers to ensure accuracy",
+        "Wrote python software to simulate electric field gradients within a vacuum and average spin polarizations of lattice constituents within an exotic material",
+        "Demonstrated excellent self direction by completing requirements with minimal superior consultation"
+      ]
+    },
+    {
+      "company": "Djavad Mowafaghian Centre for Brain Health",
+      "position": "Research Assistant (Engineering)",
+      "website": "https://www.centreforbrainhealth.ca/",
+      "startDate": "2016-05",
+      "endDate": "2016-09",
+      "summary": "",
+      "highlights": [
+        "Designed and modelled electroporation chambers in Solidwords used to contain tadpoles during a neurophysiological research process",
+        "Integrated power supply circuitry into an existing optical system to drive a series of rotating mirrors",
+        "Reverse engineered a pre-manufactured confocl dichroic microscope and laser system to identify points of failure"
+      ]
+    },
+    {
+      "company": "TRIUMF",
+      "position": "Internship (Engineering)",
+      "website": "https://www.triumf.ca/",
+      "startDate": "2015-05",
+      "endDate": "2015-09",
+      "summary": "",
+      "highlights": [
+        "Designed and assembled a dissolution system for the removal of irradiated materials from chemically etched plates",
+        "Programmed a Human Machine Interface (HMI) using C# and integrated it into an existing automation server for use by operators on a daily basis",
+        "Collaborated effectively with project engineers to plan and meet project deliverables on schedule and within scope"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "UBC IEEE Student Chapter",
+      "website": "http://www.ubcieee.org/",
+      "position": "Chair",
+      "startDate": "2020-09",
+      "endDate": "2021-05",
+      "summary": "Senior leadership responsible for complete operations of the branch",
+      "highlights": [
+        "Design firmware for distributed weather sensor network",
+        "Maintain custom data collection and storage infrastructure"
+      ]
+    },
+    {
+      "organization": "UBC IEEE Student Chapter",
+      "website": "http://www.ubcieee.org/",
+      "position": "Society Chair (Technology and Engineering Management)",
+      "startDate": "2018-09",
+      "endDate": "2019-09",
+      "summary": "Responsible for coordinating networking events for the TEMS society",
+      "highlights": [
+        "Chair, ACM Manoa, 2016-Present",
+        "Member, IEEE Student Branch, 2014-Present",
+        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
+      ]
+    },
+    {
+      "organization": "UBC Formula Electric (Engineering Team)",
+      "website": "https://www.formulaubc.com/#!",
+      "position": "Analog Hardware Developer",
+      "startDate": "2018-09",
+      "endDate": "2019-09",
+      "summary": "Engineering design team focussing on electric formula vehicles",
+      "highlights": [
+        "Chair, ACM Manoa, 2016-Present",
+        "Member, IEEE Student Branch, 2014-Present",
+        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
+      ]
+    },
+    {
+      "organization": "UBC Orbit (Engineering Team)",
+      "website": "https://www.ubcorbit.com/",
+      "position": "Embedded Firmware Engineer",
+      "startDate": "2016-09",
+      "endDate": "2018-09",
+      "summary": "Engineering design team focussing on CubeSat satellite developement",
+      "highlights": [
+        "Chair, ACM Manoa, 2016-Present",
+        "Member, IEEE Student Branch, 2014-Present",
+        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "NSERC Undergraduate Research Student Award",
+      "date": "2017",
+      "awarder": "UBC Physics and Astronomy",
+      "summary": "The NSERC USRA program provides support for research work experience in the natural sciences and engineering."
+    },
+  ],
+  "references": [
+    {
+      "name": "Available upon request",
+      "reference": ""
+    }
+  ]
+}

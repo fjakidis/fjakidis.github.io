@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>
+    
+      The difficult things will always be difficult |
+    
+    Molly Maluhia | Professional Portfolio
+  </title>
+
+  <!-- Load Javascript and CSS for Semantic UI -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="/template/css/semantic-ui/semantic.min.js"></script>
+  <link rel="stylesheet" href="/template/css/semantic-ui/semantic.min.css">
+
+  <!-- Load Techfolio CSS customizations -->
+  <link rel="stylesheet" type="text/css" href="/template/css/stylesheet-default.css">
+  <link rel="stylesheet" type="text/css" href="/template/css/stylesheet-customizations.css">
+
+  <link rel="stylesheet" type="text/css" href="/template/css/print-default.css" media="print">
+  <link rel="stylesheet" type="text/css" href="/template/css/print-customizations.css" media="print">
+
+  <!-- Load a rouge theme from the sample themes in css/rouge.
+       See https://benhur07b.github.io/2017/03/25/add-syntax-highlighting-to-your-jekyll-site-with-rouge.html
+  -->
+  <link rel="stylesheet" type="text/css" href="/template/css/rouge/igorpro.css">
+
+
+  <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+  
+
+  <!-- Mathjax Support -->
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+
+
+  <body>
+    <!-- Used by all builtin themes. Now we list number of essays and projects. -->
+
+
+
+
+
+
+<div class="nonprintable">
+  <nav class="ui stackable menu">
+    <a href="/template/" class="brand item">
+      <img class="ui avatar image" src="https://techfolios.github.io/template/images/molly.png"><span>Jason Fakidis</span>
+    </a>
+    
+    <a href="/template/projects" class=" item">Projects (3)</a>
+    
+    
+    <a href="/template/essays" class="  active  item">Essays (6)</a>
+    
+    <a href="/template/bio" class="  item">Resume</a>
+  </nav>
+</div>
+
+<div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
+  <h1>The difficult things will always be difficult</h1>
+  <span class="date">06 Feb 2016</span>
+  <hr>
+  <h1 id="cpen400d-deep-learning">CPEN400D Deep Learning</h1>
+
+<p>Instructors: Brad Quinton, Scott Chin</p>
+
+<h1 id="assignment-1-introductions-logistic-regression-gradient-descent">Assignment 1: Introductions, Logistic Regression, Gradient Descent</h1>
+
+<p>Welcome to your first assignment!  In this assignment we will introduce the development tools that you will use throughout the course.  Then we will dive in to build a complete Logistic Regression system that you will then use to train on data used to detect defects in chips.</p>
+
+<p>After this assignment you will:</p>
+
+<ul>
+  <li>Be able to use various practical tools used in Deep Learning implementations such as Python, Jupyter Notebooks, NumPy, matplotlib.</li>
+  <li>Be able to use NumPy to work with arrays, use its various functions, and uses its various mechanisms such as vectorization and Broadcasting.</li>
+  <li>Have built a complete Logistic Regression system that can be used to train on data of any number of features!</li>
+  <li>Have explored some of the considerations when training (e.g. choosing hyperparameters)</li>
+  <li>Have explored qualitative and quantitative techniques for assessing the quality of your trained model</li>
+</ul>
+
+<h2 id="completing-your-assignment">Completing Your Assignment</h2>
+
+<p>Your assignment will be graded based on your implementation and completion of specific code cells within this Jupyter Notebook.  We will introduce what Jupyter Notebooks and code cells are in the next section.</p>
+
+<p>The code cells that you need to complete will start with the following text:</p>
+
+<p><strong># GRADED FUNCTION:</strong></p>
+
+<p>Only these cells will be extracted and graded.  Furthermore, within these code cells will be comments</p>
+
+<p><strong>### START CODE HERE ###</strong> and <strong>### END CODE HERE ###</strong></p>
+
+<p>Write your code <strong>between</strong> these comments!  Do <strong>NOT</strong> change any of the code outside of these comments! In these comments, we will also estimate the number of lines of code that you will need to write. We don’t check line count, but if you find yourself going significantly beyond these suggestions, you may consider rethinking your approach.</p>
+
+<p>Following each Graded Function code cell will be one or more test cells. You can run these test cells to check that your implementation is correct. We will use these test cells, along with some hidden tests, to grade your assignment.</p>
+
+<p>Submit your assignment via JupyterHub.  You can submit as many times as you’d like.  We will grade the most recently submitted version.</p>
+
+<p>Please also edit the following code cell to include your name and student number.  Thank you!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Student Name: Jason Fakidis
+# Student Number: 49546161
+</span></code></pre></div></div>
+
+<h2 id="summary-of-graded-functions">Summary of Graded Functions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>non_vectorized_sigmoid()</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>sigmoid()</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>initialize_parameters()</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>hypothesis()</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>compute_cost()</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>compute_gradients()</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>gradient_descent()</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>predict()</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>compute_accuracy()</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>TOTAL</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="1-development-environment">1. Development Environment</h2>
+
+<p>Let’s first review the development environment, programming language, and packages that you will be using throughout this course’s assignments.  Some of you may already have experience with some of these components, but it is absolutely ok if you do not.</p>
+
+<h3 id="11-python">1.1 Python</h3>
+
+<p>Python is the most commonly used programming language in the field of Deep Learning. The assignments in this course will use Python (version 3).  We will assume you have the following understanding of Python:</p>
+
+<ul>
+  <li>Basic datatypes (ints, floats, strings, booleans) and how to manipulate them</li>
+  <li>Builtin container types (e.g. lists, dicts, sets, tuples) and how to manipulate them (e.g. iteration, indexing, slicing, comprehension)</li>
+  <li>Basic flow control (loops, conditionals, etc.)</li>
+  <li>Using and declaring functions</li>
+  <li>Basic understanding of Classes and how to instantiate and work with objects</li>
+  <li>Importing packages and modules</li>
+</ul>
+
+<p>If you haven’t used Python before, don’t worry. You will be able to get up to speed very quickly based on the programming experience you have acquired in your engineering program.  There are plenty of good tutorials online.</p>
+
+<p><a href="https://docs.python.org/3.6/">Official Documentation</a></p>
+
+<h3 id="12-jupyter-notebooks">1.2. Jupyter Notebooks</h3>
+
+<p>Jupyter Notebooks (formerly iPython Notebooks) are documents that run in your web browser to produce an interactive computational environment. These notebooks contain <em>cells</em> that may contain executable code, or rich media elements (encoded in  <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>) such as text, figures, equations, etc.</p>
+
+<h4 id="121-running-a-cell">1.2.1 Running a Cell</h4>
+
+<p>Executing the code in a cell can be done by pressing SHIFT+ENTER.  Or you can click the <em>Run</em> button in the Jupyter menu up top. You can try running the following cell now</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World
+30
+</code></pre></div></div>
+
+<h4 id="122-the-kernel">1.2.2 The Kernel</h4>
+
+<p>When a Jupyter notebook is opened, its “computational engine” (called the kernel) is automatically started. Each time you run a cell, it is executed by the kernel. You can think of the kernel as sequential program that runs the cells based on the order in which you execute them.  This means you can jump around the notebook and run the cells in a different order than how they are presented.  This also means that variables and functions declared in one executed cell, will reside in the kernel’s memory and you can reference it in another cell.  For example, in the previous code cell we declared two Python variables named “a” and “b”.  If you run the following cell, you can see that they are still in the kernel’s memory.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
+20
+</code></pre></div></div>
+
+<p>To help you keep track of the order in which you executed the cells, you can refer to the text to the left of each code cell which looks like “In [  ]”.  Once the cell has run, a number will appear in the brackets.  When no number is there, it means the cell has never been run.  If you see an asterisk * in the bracket, it means the cell is currently executing.</p>
+
+<p>You can interrupt a running cell by either clicking the square shaped “Stop” button in the Jupyter menu above, or going to the “Kernel” menu and then selecting “Interrupt”.</p>
+
+<p>Closing the browser does <strong>not</strong> close the kernel. To truly stop it, you need to go to the “File” menu and select “Close and Halt”.  More commonly, you will want to reset your Kernel and to run again from scratch. This doesn’t revert or change any of the code in the cells in your notebook, it just simply restarts clears the kernel’s memory. To reset the kernel, go to the “Kernel” menu, and select one of the restart options.</p>
+
+<p>For more info on the kernel, see the <a href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html">official docs</a></p>
+
+<h3 id="13-numpy">1.3 NumPy</h3>
+
+<p>NumPy is the core package for scientific computing in Python. It adds support for large, multi-dimensional matrices, along with a large collection of high-level mathematical functions to operate on these arrays efficiently.</p>
+
+<p>We do not expect you to have any experience with NumPy. At this point in the assignment, you should familiarize yourself with how to create and manipulate NumPy matrices.  We suggest reviewing the section <em>The Basics</em> from the official <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html">NumPy tutorial</a>.  If you have experience with Matlab, you may also want to review this article on <a href="https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html">NumPy for Matlab Users</a>.</p>
+
+<p>Run the following code to see some of the basics of working with NumPy arrays.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Import the numpy package. It's common practice to import
+# the packing into an abbreviated identifier called np
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c1"># Create a 3x2 array
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> 
+              <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
+              <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+
+<span class="c1"># NumPy arrays are objects of a class named ndarray
+</span><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># ndarray objects have a property to inspect the dimensions of the array
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Index into a specific element. Note the use of comma to
+# delimit the indices.
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;class 'numpy.ndarray'&gt;
+(3, 2)
+5
+</code></pre></div></div>
+
+<h3 id="14-matplotlib">1.4 Matplotlib</h3>
+
+<p>Matplotlib is a plotting library for Python and NumPy that produces publication-quality figures.  We will be using it to help us visualize our data. This is another package worth learning for industry use.  You can read more about it at the official <a href="https://matplotlib.org/">Matplotlib website</a></p>
+
+<h2 id="2-implementing-logistic-regression">2. Implementing Logistic Regression</h2>
+
+<p>The core part of this assignment will be to implement Python code to describe, train, and use for prediction a Logistic Regression model.</p>
+
+<p>Recall the equation for the Logistic Regression:</p>
+
+\[a = \sigma(Wx + b)\]
+
+<ul>
+  <li>$x$ is the input vector with $n$ features</li>
+  <li>$w$ is the vector of $n$ learned parameters of the model</li>
+  <li>$b$ is the learned bias parameter of the model</li>
+  <li>$\sigma$ is the Sigmoid activation function</li>
+  <li>$a$ is the binary prediction output</li>
+</ul>
+
+<p>We will step you through each part of this task, and discuss various practical aspects along the way. Let’s get started!</p>
+
+<h3 id="21-implementing-the-sigmoid-function">2.1 Implementing the Sigmoid Function</h3>
+
+<p>We will start by implementing a Python function to compute the Sigmoid function.  We will use this opportunity to introduce the concept of Vectorization.</p>
+
+<p>A common situation in Deep Learning is that you want to apply the same operation to each element of a vector (or matrix).  The most obvious way to do this is to use a Python loop to iterate over each element of the vector, and then apply the operation to each element. However, this is not efficient.  With modern hardware and software frameworks, it is possible to apply the operation to all elements in the entire vector simultaneously in parallel and/or in a much more optimized way.  This leads to faster execution of the code.  Fast runtime becomes important in Deep Learning as we work with massive datasets, and need to run many iterations of our optimization algorithm (e.g. Gradient Descent) to train our networks.</p>
+
+<p>In this section, we will first create a non-vectorized implementation of the Sigmoid function, followed by a vectorized version (which we will ultimately use in our Logistic Regression implementation), and compare their runtimes.</p>
+
+<p>First, recall that the Sigmoid function is defined as follows: 
+\(\sigma(x) = \frac{1}{1+e^{-x}}\)</p>
+
+<h4 id="211-non-vectorized-sigmoid-function">2.1.1 Non-vectorized Sigmoid Function</h4>
+
+<p>Complete the following code to implement a Python function that takes a single int or float, and computes and returns the application of the Sigmoid function.</p>
+
+<p><strong>Hint</strong>: Use the math.exp() function</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: basic_sigmoid
+</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">non_vectorized_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">""" A non-vectorized implementation of the Sigmoid Function
+    
+    Inputs:
+        x -- A single float or int
+        
+    Returns:
+        A float for the Sigmoid function applied to x
+    """</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="c1">### START CODE HERE ### (~ 1 line of code) ###
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+    <span class="c1">### END CODE HERE ###
+</span>
+    <span class="k">return</span> <span class="n">s</span>
+</code></pre></div></div>
+
+<p>Run the following cell to test your non-vectorized Sigmoid function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_non_vectorized_sigmoid</span><span class="p">():</span>
+    <span class="s">""" Testcase for non_vectorized_sigmoid() """</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">y_expected</span> <span class="o">=</span> <span class="mf">0.7310585</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">non_vectorized_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_expected</span><span class="p">),</span> <span class="s">'Expected {0} but got {1} for an input of {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y_expected</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y_expected</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">non_vectorized_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_expected</span><span class="p">),</span> <span class="s">'Expected {0} but got {1} for an input of {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y_expected</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">y_expected</span> <span class="o">=</span> <span class="mf">0.2689414</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">non_vectorized_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_expected</span><span class="p">),</span> <span class="s">'Expected {0} but got {1} for an input of {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y_expected</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_non_vectorized_sigmoid()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_non_vectorized_sigmoid</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_non_vectorized_sigmoid()
+</code></pre></div></div>
+
+<p>Try to run the function with a NumPy array as innput. This will not work and will raise an error. See if you can understand how the error traceback points you to the line of offending code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">non_vectorized_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-8-d49f3a06d231&gt; in &lt;module&gt;
+      1 x = np.array([1,2,3])
+----&gt; 2 print(non_vectorized_sigmoid(x))
+
+
+&lt;ipython-input-5-e02461c5a757&gt; in non_vectorized_sigmoid(x)
+     15     ### START CODE HERE ### (~ 1 line of code) ###
+     16     # YOUR CODE HERE
+---&gt; 17     return 1/(1+math.exp(-x))
+     18     ### END CODE HERE ###
+     19 
+
+
+TypeError: only size-1 arrays can be converted to Python scalars
+</code></pre></div></div>
+
+<h4 id="212-vectorized-sigmoid-function">2.1.2 Vectorized Sigmoid function</h4>
+
+<p>In the last section, we saw that the functions in the <em>math</em> library don’t support NumPy arrays. Fortunately, the Numpy package provides math operations that do. These functions typically operate on single float and ints as well. To implement a vectorized version of our Sigmoid function, we simply need to use NumPy’s version of the <em>exp()</em> function.</p>
+
+<p>We won’t get into the details of how NumPy’s exp() function (and it’s other vectorized functions) actually work under-the-hood, but the gist is that there are two things happening.  First, the NumPy functions have low-level optimized pre-compiled implementations (e.g. using the C language) which will be faster than using native-Python loops to iterate across all elements.  Second, these low-level implementations abstract away, and manage hardware resource utilization to make the most out of any parallel processing capabilties of the hardware.  From the developer’s (your) perspective, it looks like the operation is applied to all elements at once because you simply pass the exp() function the entire NumPy array, and it returns a NumPy array of the same size with the results of applying exp() to each element. This abstraction also has the benefit of making your code easier to understand.</p>
+
+<p>Complete the implementation of the following code to create a vectorized version of the Sigmoid function:</p>
+
+<p><strong>Hint</strong>: Use <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.exp.html">np.exp()</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: sigmoid
+</span>
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">""" A vectorized implementation of the Sigmoid Function
+    
+    Inputs:
+        x -- A NumPy array, or a single float or int
+        
+    Returns:
+        A NumPy array forthe Sigmoid function applied to x
+    """</span>
+
+    <span class="c1">### START CODE HERE ### (~ 1 line of code) ###
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+    <span class="c1">### END CODE HERE ###
+</span>    
+    <span class="k">return</span> <span class="n">s</span>
+</code></pre></div></div>
+
+<p>Run the following cell to test your vectorized Sigmoid function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_sigmoid</span><span class="p">():</span>
+    <span class="s">""" Testcase for sigmoid() """</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">y_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.73105858</span><span class="p">,</span> <span class="mf">0.88079708</span><span class="p">,</span> <span class="mf">0.95257413</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_expected</span><span class="p">),</span> <span class="s">'Expected {0} but got {1} for an input of {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y_expected</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_sigmoid()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_sigmoid</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_sigmoid()
+</code></pre></div></div>
+
+<h4 id="213-comparing-performance-of-vectorized-implementation">2.1.3 Comparing performance of Vectorized implementation</h4>
+
+<p>Let’s compare the runtime of the non-vectorized and vectorized implementations of Sigmoid on a vector with 100,000 elements (this is a small number in terms Deep Learning applications, but is sufficient for demonstration). In the following code, we don’t bother saving the results since we just want to measure the runtime.</p>
+
+<p><strong>Note</strong>: It’s difficult to get accurate runtime results in this fashion because of other processes currently running on the server (e.g. other students working on their assignment).  But for this example, you should see 10-20x faster runtime for the vectorized implementation.  In other cases of vectorization, you may achieve even greater speedups! Try running this cell several times and you should see the variation in results.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># We will use the time() function to measure runtime
+</span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Create a random input vector
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+
+<span class="c1"># The Non-vectorized Implementation which requires using
+# a loop
+</span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">non_vectorized_sigmoid</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># The Non-vectorized Implementation which accepts the
+# entire NumPy array
+</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># Now print the runtime results
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Non-vectorized runtime in seconds: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Vectorized runtime in seconds:     {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Non-vectorized runtime in seconds: 0.08295035362243652
+Vectorized runtime in seconds:     0.003860950469970703
+</code></pre></div></div>
+
+<h3 id="22-initializing-parameters">2.2 Initializing Parameters</h3>
+
+<p>Recall that in Logistic Regression, we have a parameter vector $W$ that is equal in size to the number of features $n$, and a single bias parameter, $b$.</p>
+
+<p>We will now write a function that initializes these parameters with zeros, and returns them.  Complete the following code. Make sure you create an array that is explicitly sized to be an n-x-1 array for $W$. Note, from here on out, we will use parentheses to denote the dimensions of an array.  So $W$ will be an array with shape (n,1).</p>
+
+<p><strong>Hint</strong>: You may want to use the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html">np.zeros()</a> function.</p>
+
+<p><strong>Notes</strong>: As you work with more complex matrices in Deep Learning implementations, it can be useful to use Python assertions to check the dimensions of the matrices that you create. Common programming mistakes such as accidentally switching the dimension sizes can be caught early this way.  See the assertions already included in the code below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: initialize_parameters
+</span>
+<span class="k">def</span> <span class="nf">initialize_parameters</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="s">""" Initialize the parameters with zeros for Logistic Regression
+    
+    Inputs:
+        n: An int for number of input features
+        
+    Returns:
+        NumPy Array: the W parameter vector of shape (n, 1)
+        float: the b bias paramter
+    """</span>
+    <span class="c1">### START CODE HERE ### (~ 2 line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1">### END CODE HERE ###
+</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_initialize_parameters</span><span class="p">():</span>
+    <span class="s">""" Testcase for initialize_parameters() """</span>
+    
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">w_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">b_expected</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">initialize_parameters</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w_expected</span><span class="p">),</span> <span class="s">'For an input of {0}, expected w to be {1}, but got {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">w_expected</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b_expected</span><span class="p">),</span> <span class="s">'For an input of {0}, expected b to be {1}, but got {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">b_expected</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_initialize_parameters()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_initialize_parameters</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_initialize_parameters()
+</code></pre></div></div>
+
+<h3 id="23-some-numpy-concepts">2.3 Some NumPy Concepts</h3>
+
+<h4 id="231-vectors-in-numpy">2.3.1 Vectors in NumPy</h4>
+
+<p>Strictly speaking, a (1, n) NumPy array, and an (n, 1) NumPy array are both 2-dimensional matrices.  But practically speaking, they can also be regarded as a row vector and a column vector, respectively. A (n, ) NumPy array has only one dimension and is both strictly and practically a vector. This is stumbling block for many people new to NumPy so keep it in mind! It matters when you are trying to perform operations between these two kinds of vectors, and dimensions are importent (e.g. matrix multiply). Furthermore, a NumPy array can have zero dimensions () which is interpreted as a scalar.</p>
+
+<p>Here are some examples of these scenarios in code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Creating some zero vectors of size 10
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">col_vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">row_vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Shape of col_vector: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col_vector</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Shape of row_vector: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">row_vector</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Shape of vector:     {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Contents of col_vector:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">col_vector</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Contents of row_vector:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">row_vector</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Contents of vector - Note the number of brackets compared to row_vector:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shape of col_vector: (10, 1)
+Shape of row_vector: (1, 10)
+Shape of vector:     (10,)
+
+Contents of col_vector:
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+
+Contents of row_vector:
+[[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]]
+
+Contents of vector - Note the number of brackets compared to row_vector:
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Creating some vectors from a list
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">col_vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">row_vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Shape of col_vector: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">col_vector</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Shape of row_vector: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">row_vector</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Shape of vector:     {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Contents of col_vector:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">col_vector</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Contents of row_vector:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">row_vector</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Contents of vector - Note the number of brackets compared to row_vector:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shape of col_vector: (4, 1)
+Shape of row_vector: (1, 4)
+Shape of vector:     (4,)
+
+Contents of col_vector:
+[[1]
+ [2]
+ [3]
+ [4]]
+
+Contents of row_vector:
+[[1 2 3 4]]
+
+Contents of vector - Note the number of brackets compared to row_vector:
+[1 2 3 4]
+</code></pre></div></div>
+
+<h4 id="232--numpy-broadcasting">2.3.2  NumPy Broadcasting</h4>
+
+<p>Broadcasting solves the problem of performing matrix arithmetic between matrices of different shapes. According to the <a href="https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">NumPy documentation</a>: “Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have compatible shapes.”  Broadcasting feels awkward at first for many people just starting to use NumPy, but it is a powerful mechanism that greatly simplifies the written code, making it easier to read and maintain.  Lets start with some specific cases.</p>
+
+<p><strong>Operating on a Scalar and an Array</strong></p>
+
+<p>Say we want to add the same constant $v$ to each element in an array $U$.  Without Broadcasting, one way you could do it is using loops like in the following cell. But we already know that using loops is inefficient, especially when U has many elements. The code gets even more complicated when U is more than 1 dimension as you need nested loops to help iterate over the higher dimensions.  You could use NumPy’s <a href="https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html">ndarray iterator</a> but that is still cumbersome.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>  <span class="c1"># Create an empty array with same shape as U
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">U</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span>
+    
+<span class="k">print</span><span class="p">(</span><span class="s">'Result of adding v to each element of U:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Result of adding v to each element of U:
+[11 12 13 14 15 16]
+</code></pre></div></div>
+
+<p>Another way is to first create a new intermediate array $VV$ with same shape as $U$ and set all elements of $VV$ equal to $V$.  Then you can simply add $U$ and $VV$ together.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Replicate v into a new array VV 
+</span><span class="n">VV</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">tile</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">U</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">U</span> <span class="o">+</span> <span class="n">VV</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'VV:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">VV</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Result of adding v to each element of U:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VV:
+[[10 10 10]
+ [10 10 10]]
+
+Result of adding v to each element of U:
+[[11 12 13]
+ [14 15 16]]
+</code></pre></div></div>
+
+<p>Ok that feels more like the vectorized NumPy way. NumPy goes one step further by basically doing the above for you via Broadcasting. You can simply write “U + v”, and NumPy will implicitly handle the above for you.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="n">U</span> <span class="o">+</span> <span class="n">v</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Result of Broadcasting on U+v:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Result of Broadcasting on U+v:
+[[11 12 13]
+ [14 15 16]]
+</code></pre></div></div>
+
+<p>The advantage of using Broadcasting are two-fold:</p>
+
+<ul>
+  <li>
+    <ol>
+      <li>Simplifies code (which is important to keep code easy to maintain, test, and extend!)</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>The creation of the intermediate arrays are done in a more computationally efficient way than if you did it yourself.  Under the hood, it doesn’t actually allocate and populate a new array in memory. The necessary arithmetic operation (e.g. $+v$ in the previous examples) is simply <em>broadcast</em> to each element of the larger operand (e.g. $U$ in the previous examples). By skipping the intermediate array allocation and population, Broadcasting is both more memory efficient and processing efficient.</li>
+    </ol>
+  </li>
+</ul>
+
+<p><strong>Operating on Arrays of Different Size</strong></p>
+
+<p>Broadcasting also works between arrays of different size. Consider the following example where $U$ is a 2D matrix, and $V$ is a row vector. Now say we want to add $V$ to each row of $U$.  You could manually stack copies of $V$ into an intermediate array with same number of rows as $U$ and perform the addition like in the next cell.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Replicate v into a new array VV 
+</span><span class="n">VV</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">tile</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="p">(</span><span class="n">U</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">U</span> <span class="o">+</span> <span class="n">VV</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'VV:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">VV</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Result of adding V to each row of U:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VV:
+[[3 4 5]
+ [3 4 5]
+ [3 4 5]]
+
+Result of adding V to each row of U:
+[[ 4  6  8]
+ [ 7  9 11]
+ [10 12 14]]
+</code></pre></div></div>
+
+<p>Broadcasting can handle this for you:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="n">U</span> <span class="o">+</span> <span class="n">V</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Result of Broadcasting and U+V:'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Result of Broadcasting and U+V:
+[[ 4  6  8]
+ [ 7  9 11]
+ [10 12 14]]
+</code></pre></div></div>
+
+<p><strong>Broadcasting Compatibility Rules</strong></p>
+
+<p>A set of rules govern whether two arrays are compatible for Broadcasting. To determine compatibility, the following two steps are taken</p>
+
+<ol>
+  <li>If the two arrays have a differing number of dimensions, prepend the shape of the array with the smaller number of dimensions with dimensions of size 1 until both arrays have the same number of dimensions.</li>
+</ol>
+
+<p><strong>Example</strong>
+$U$ is shape (3, 2, 4) and V is of shape (4,).  To perform compatibility check, $V$ is padded to (1, 1, 4)</p>
+
+<p><strong>Example</strong>
+$U$ is shape (2, 3) and V  is of shape ().  To perform compatibility check, $V$ is padded out to (1, 1)</p>
+
+<p>We can prepend dimensions of size 1 because this doesn’t change the contents of the array. Can you convince yourself why? Think about a scalar, and then think about considering it as an array of shape (1,1,1)</p>
+
+<ol>
+  <li>The size of each dimension are then compared.  The dimension is deemed compatible under two conditions:</li>
+  <li>Both dimensions are of the same size</li>
+  <li>One of the dimensions is size 1</li>
+</ol>
+
+<p><strong>Example</strong>
+$U$ is shape (3, 2, 4) and $V$ is (1, 1, 4)</p>
+<ul>
+  <li>Dimension 0: Compare 3 and 1. This dimension is compatible because one of them is size 1</li>
+  <li>Dimension 1: Compare 2 and 1. This dimension is compatible because one of them is size 1</li>
+  <li>Dimension 2: Compare 4 and 4. This dimension is compatible because they are both of the same size.</li>
+</ul>
+
+<p><strong>Example</strong>
+$U$ is shape (2, 8) and $V$ is (2, 6)</p>
+<ul>
+  <li>Dimension 0: Compare 2 and 2. This dimension is compatible because they are both of the same size.</li>
+  <li>Dimension 1: Compare 8 and 6. This dimension is <strong>not</strong> compatible</li>
+</ul>
+
+<ol>
+  <li>When all dimensions are compatible, the two arrays are deemed compatible for Broadcasting.</li>
+</ol>
+
+<p>In code, when you try to apply broadcasting but the two arrays are not compatible, the Python interpreter will throw an error. “ValueError: operands could not be broadcast together”</p>
+
+<p><strong>What Happens During Broadcasting</strong></p>
+
+<p>To perform the Broadcasting operation, both input arrays are treated as follows. For each case where a dimension is size 1 for one array and greater than 1 for the other, copy the array that has dimension size 1 along this dimension n times where n is the size of the dimension that is greater than 1.</p>
+
+<p>After this process, the shape of the resulting arrays is such that each dimension is the maximum of that dimension among the two original arrays.</p>
+
+<p><strong>Example</strong>
+$U$ is shape (2, 3) and $V$ is (1, 3). As follows:</p>
+
+\[U = \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    4 &amp; 5 &amp; 6 \\
+\end{bmatrix}, V = \begin{bmatrix}
+    7 &amp; 8 &amp; 9 \\
+\end{bmatrix}\]
+
+<p>In dimension 0, $V$ is size 1 whereas $U$ is size 2. So $V$ is copied along this dimension until it is size 2.
+V now has a shape of (2, 3)</p>
+
+\[V = \begin{bmatrix}
+    7 &amp; 8 &amp; 9 \\
+    7 &amp; 8 &amp; 9 \\
+\end{bmatrix}\]
+
+<p><strong>Example</strong></p>
+
+<p>$U$ is shape (1, 3) and $V$ is a vector of shape (4, 1) as follows:</p>
+
+\[U = \begin{bmatrix}
+    1 &amp; 2 &amp; 3 
+\end{bmatrix}, V = \begin{bmatrix}
+    4 \\ 5 \\ 6 \\ 7 \\
+\end{bmatrix}\]
+
+<p>In dimension 0, $U$ is size 1 and $V$ is size 4. So $U$ is copied 4 times along this dimension. In dimension 1, $V$ is size 1 and $U$ is size 3, so $V$ is copied out 3 times along this dimension to yield the following two effective arrays after Broadcasting. Both of these arrays have a shape of (4, 3):</p>
+
+\[U = \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    1 &amp; 2 &amp; 3 \\
+    1 &amp; 2 &amp; 3 \\
+    1 &amp; 2 &amp; 3 \\
+\end{bmatrix}, V = \begin{bmatrix}
+    4 &amp; 4 &amp; 4 \\
+    5 &amp; 5 &amp; 5 \\
+    6 &amp; 6 &amp; 6 \\
+    7 &amp; 7 &amp; 7 \\
+\end{bmatrix}\]
+
+<p>Try this one out in the next cell.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">]])</span>
+<span class="n">U</span> <span class="o">+</span> <span class="n">V</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 5,  6,  7],
+       [ 6,  7,  8],
+       [ 7,  8,  9],
+       [ 8,  9, 10]])
+</code></pre></div></div>
+
+<p>We glossed over this at the time, but when you wrote your vectorized sigmoid function, you would have used Broadcasting.  Go back and have a look. Can you see that this is true?</p>
+
+<p>Operations that support Broadcasting are called <a href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html">Universal Functions</a>.</p>
+
+<p>For more info on Broadcasting, you can read the <a href="https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">official docs</a></p>
+
+<h3 id="23-implementing-the-hypothesis-function">2.3 Implementing the Hypothesis Function</h3>
+
+<p>Recall from lecture the vectorized Logistic Regression hypothesis function:</p>
+
+<p>$A = \sigma(w^T X + b)$</p>
+
+<ul>
+  <li>$X$ is the (n, m) input matrix where $n$ is the number of features, and $m$ is the number of data samples.</li>
+  <li>$w$ is the (n, 1) parameter matrix.</li>
+  <li>$b$ is the bias parameter.</li>
+  <li>$A$ is a (1, m) vector which represents the hypothesis for each of the $m$ samples.</li>
+</ul>
+
+<p>We will now build a Python function to implement the <strong>vectorized</strong> Logistic Regression hypothesis function.  In this case, <strong>vectorized</strong> refers to computing the hypothesis for all of the $m$ data samples simultaneously as supplied via the array $X$.</p>
+
+<p>First, consider the hypothesis for one sample $x^{(i)}$:</p>
+
+\[a_i = \sigma(w_0 x^{(i)}_0 + w_1x^{(i)}_1 + ... + w_nx^{(i)}_n + b)\]
+
+<p>Then expand the (1,m) matrix $A$ as follows:</p>
+
+\[A = \begin{bmatrix} 
+    a_1 &amp; a_1 &amp; \dots &amp; a_m  \\
+\end{bmatrix} =
+\begin{bmatrix}
+    \sigma(w_0 x^{(0)}_0 + \dots + w_nx^{(0)}_n + b)  &amp;
+    \sigma(w_0 x^{(1)}_0 + \dots + w_nx^{(1)}_n + b)  &amp;
+    \dots &amp;
+    \sigma(w_0 x^{(m)}_0 + \dots + w_nx^{(m)}_n + b)
+\end{bmatrix}\]
+
+<p>We already wrote a vectorized implementation of the Sigmoid function which can operate on each element of a matrix.  Furthermore, we also discussed about Broadcasting, so we will be able to use it for adding $b$. The only part remaining then is how to compute the inner matrix in a vectorized manner?</p>
+
+\[A = \sigma\left(\begin{bmatrix}
+    w_0 x^{(0)}_0 + \dots + w_nx^{(0)}_n  &amp;
+    w_0 x^{(1)}_0 + \dots + w_nx^{(1)}_n  &amp;
+    \dots &amp;
+    w_0 x^{(m)}_0 + \dots + w_nx^{(m)}_n 
+\end{bmatrix} + b\right)\]
+
+<p>From Linear Algebra, you should be able to convince yourselves that $w^TX$ gives us the inner matrix that we need in the previous line:</p>
+
+\[w^TX = \begin{bmatrix}
+    w_0 &amp; w_1 &amp; \dots &amp; w_n \\
+\end{bmatrix} \begin{bmatrix}
+    x^{(0)}_0 &amp; x^{(1)}_0 &amp; \dots &amp; x^{(m)}_0 \\
+    x^{(0)}_1 &amp; x^{(1)}_1 &amp; \dots &amp; x^{(m)}_1 \\
+    \vdots    &amp; \ddots  \\
+    x^{(0)}_n &amp; x^{(1)}_n &amp; \dots &amp; x^{(m)}_n \\
+\end{bmatrix} = \begin{bmatrix}
+    w_0 x^{(0)}_0 + \dots + w_nx^{(0)}_n  &amp;
+    w_0 x^{(1)}_0 + \dots + w_nx^{(1)}_n  &amp;
+    \dots &amp;
+    w_0 x^{(m)}_0 + \dots + w_nx^{(m)}_n 
+\end{bmatrix}\]
+
+<p>So to recap, we will</p>
+<ul>
+  <li>use vectorized NumPy operations to compute $W^TX$</li>
+  <li>use Broadcasting to add $b$ to the above in a vectorized manner</li>
+  <li>use your vectorized Sigmoid function</li>
+</ul>
+
+<p>Now complete the following code to implement the vectorized hypothesis function.</p>
+
+<p><strong>Hint</strong>:</p>
+<ul>
+  <li>To get the transpose of a matrix, simply use the .T property of a NumPy array</li>
+  <li>NumPy matrix multiply can be peformed by <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.matmul.html">np.matmul()</a></li>
+  <li>Make use of your vectorized Sigmoid function that you implemented in Section 2.1.2</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: hypothesis
+</span>
+<span class="k">def</span> <span class="nf">hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">""" 
+    Inputs:
+        X: NumPy array of input samples of shape (n, m)
+        w: NumPy array of parameters with shape (n, 1)
+        b: float for the bias parameter
+        
+    Returns:
+        NumPy array of shape (1, m) with the hypothesis of each sample
+    """</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c1">### START CODE HERE ### (~ 1 line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="n">A</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+    <span class="c1">### END CODE HERE ###
+</span>    
+    <span class="k">return</span> <span class="n">A</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_hypothesis</span><span class="p">():</span>
+    <span class="s">""" Testcase for hypothesis() """</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">]])</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.55</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">0.13</span>
+    
+    <span class="n">A_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.8803238</span><span class="p">,</span> <span class="mf">0.73990984</span><span class="p">,</span> <span class="mf">0.63471542</span><span class="p">]])</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s">'Expected a Numpy array for A but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">A</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">A_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="s">'Unexpected shape for A. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="n">A_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A_expected</span><span class="p">),</span> <span class="s">'expected A to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">A_expected</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+    
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_hypothesis()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_hypothesis</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_hypothesis()
+</code></pre></div></div>
+
+<h3 id="24-computing-the-cost">2.4 Computing the Cost</h3>
+
+<p>Recall the Logistic Regression cost function as follows:</p>
+
+\[J = -\frac{1}{m}\sum_{i=1}^{m}y^{(i)}\log(a^{(i)})+(1-y^{(i)})\log(1-a^{(i)})\]
+
+<p>Complete the following code to compute the above cost using a vectorized implementation (don’t use loops!).  The Python function will accept $A$ as an array of shape (1, m) and $Y$ as a vector of shape (m,).</p>
+
+<p><strong>Hints</strong></p>
+
+<ul>
+  <li>Consider the cost function with the summation split into two summations as follows:</li>
+</ul>
+
+\[J = -\frac{1}{m}\left(\sum_{i=1}^{m}y^{(i)}\log(a^{(i)})+\sum_{i=1}^{m}(1-y^{(i)})\log(1-a^{(i)})\right)\]
+
+<ul>
+  <li>Figure out how to write vectorized code to do the first summation: $\sum_{i=1}^{m}y^{(i)}\log(a^{(i)})$</li>
+  <li>This is an elementwise multiplication between two vectors, followed by a summation. You can do both of this in one step using the appropriate linear algebra operation, but you can also do it separately.</li>
+  <li>There are a couple opportunities to apply Broadcasting.</li>
+  <li>You may want to use one or more of <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.log.html">np.log()</a>, <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html">np.sum()</a></li>
+  <li>Remember that you need to return a single float. You can cast a NumPy array with a single element to a Python float using float()</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: compute_cost
+</span>
+<span class="k">def</span> <span class="nf">compute_cost</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="s">""" Vectorized Logistic Regression Cost Function
+    
+    Inputs:
+        A: NumPy array of shape (1, m)
+        Y: NumPy array (m, ) of known labels
+        
+    Returns:
+        A single float for the cost
+    """</span>
+    
+    <span class="n">cost</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c1">### START CODE HERE ### (~ 1-5 line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="n">cost</span> <span class="o">=</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Y</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">A</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">A</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y</span><span class="p">)))</span>
+    <span class="c1">### END CODE HERE ###
+</span>
+    <span class="k">return</span> <span class="n">cost</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_compute_cost</span><span class="p">():</span>
+    <span class="s">""" Testcase for compute_cost() """</span>
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]])</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    
+    <span class="n">cost_expected</span> <span class="o">=</span> <span class="mf">1.09447145</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">compute_cost</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+    
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="s">'Expected a float for cost but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cost</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">cost_expected</span><span class="p">),</span> <span class="s">'expected cost to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">cost_expected</span><span class="p">,</span> <span class="n">cost</span><span class="p">)</span>
+    
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_compute_cost()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_compute_cost</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_compute_cost()
+</code></pre></div></div>
+
+<h3 id="25-computing-gradients">2.5 Computing Gradients</h3>
+
+<p>To perform gradient descent, we need to compute the derivative of the cost function $J$ with respect to each parameter. Recall from lecture the following two equations for the gradients with respect to $w$ and $b$:</p>
+
+<p>\(\frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T\)
+\(\frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)})\)</p>
+
+<p>Now complete the following Python function to compute these two derivatives.</p>
+
+<p><strong>Hint</strong>: You may find the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html">NumPy sum()</a> function to be useful.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: compute_gradients
+</span>
+<span class="k">def</span> <span class="nf">compute_gradients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="s">""" Compute the gradients of the cost function 
+    
+    Inputs:
+        A: NumPy array of shape (1, m)
+        X: NumPy array of shape (n, m)
+        Y: NumPy array of shape (m, )
+    
+    Returns:
+        Two NumPy arrays. One for the cost derivative w.r.t. dw
+        and one for the cost derivative w.r.t. db
+    """</span>
+    <span class="n">dw</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c1">### START CODE HERE ### (~ 2-3 line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="n">dw</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">A</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">X</span><span class="p">.</span><span class="n">dot</span><span class="p">((</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">).</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">A</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">((</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">))</span>
+    <span class="c1">### END CODE HERE ###
+</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">dw</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">dw</span><span class="p">,</span> <span class="n">db</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_compute_gradients</span><span class="p">():</span>
+    <span class="s">""" Testcase for compute_gradients() """</span>
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">]])</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">]])</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+    
+    <span class="n">dw_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0217</span>    <span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.02086667</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.00706667</span><span class="p">]])</span>
+    <span class="n">db_expected</span> <span class="o">=</span> <span class="mf">0.0233333333</span>
+    <span class="n">dw</span><span class="p">,</span> <span class="n">db</span> <span class="o">=</span> <span class="n">compute_gradients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dw</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s">'Expected a Numpy array for dw but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dw</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">dw</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">dw_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="s">'Unexpected shape for dw. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="n">dw_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dw</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dw</span><span class="p">,</span> <span class="n">dw_expected</span><span class="p">),</span> <span class="s">'expected dw to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">dw_expected</span><span class="p">,</span> <span class="n">dw</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="s">'Expected a float for db but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">db</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">db_expected</span><span class="p">),</span> <span class="s">'expected db to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">db_expected</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+    
+    
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_compute_gradients()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_compute_gradients</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_compute_gradients()
+</code></pre></div></div>
+
+<h3 id="26-gradient-descent">2.6 Gradient Descent</h3>
+
+<p>To train our logistic regression model, we will now put all the previous parts together to implement Gradient Descent. Recall the Gradient Descent algorithm:</p>
+
+<ul>
+  <li>initialize trainable parameters</li>
+  <li>for num_iterations:
+    <ul>
+      <li>compute gradients when making hypothesis with current parameters</li>
+      <li>update parameters according to a learning rate</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Although we do not need to compute the cost within the loop, we typically do it to help us see how Gradient Descent is progressing.</p>
+
+<p><strong>Hints</strong></p>
+
+<ul>
+  <li>Remember that you already wrote the following functions: <em>initialize_parameters()</em>, <em>hypothesis()</em>, <em>compute_cost()</em>, <em>compute_gradients()</em>. Use them here!</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: gradient_descent
+</span>
+<span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">print_costs</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="s">""" Perform Gradient Descent for Logistic Regression
+    
+    Inputs:
+        X: NumPy array (n, m)
+        Y: NumPy array (m,)
+        num_iterations: int for number of gradient descent iterations
+        learning_rate: float for gradient descent learning rate
+        print_costs: bool to enable printing of costs
+    
+    Returns:
+        w: NumPy array for trained parameters w
+        b: float for trained bias parameter b
+        costs: Python list of cost at each iteration
+    """</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
+
+    <span class="c1">### START CODE HERE ### (~1  line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="c1"># initialize trainable parameters
+</span>    <span class="n">w</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">initialize_parameters</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1">### END CODE HERE ###
+</span>    
+    <span class="c1"># We will use a list to store the cost at each iteration
+</span>    <span class="c1"># so that we can plot this later for educational purposes
+</span>    <span class="n">costs</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+
+        <span class="c1">### START CODE HERE ### (~5  line of code)
+</span>        <span class="n">A</span> <span class="o">=</span> <span class="n">hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">cost</span> <span class="o">=</span> <span class="n">compute_cost</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+        <span class="n">dw</span><span class="p">,</span><span class="n">db</span> <span class="o">=</span> <span class="n">compute_gradients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">w</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">dw</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db</span>
+        <span class="c1">### END CODE HERE ###
+</span>        
+        <span class="c1"># Convert and save the cost at this iteration
+</span>        <span class="n">costs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+        
+        <span class="c1"># Print cost after ever 5000 iterations
+</span>        <span class="k">if</span> <span class="n">print_costs</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">5000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Iteration {0} - Cost: {1}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">costs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
+
+    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">costs</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_gradient_descent_one_iteration</span><span class="p">():</span>
+    <span class="s">""" Testcase for gradient_descent for one iteration() """</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">71.99</span><span class="p">,</span> <span class="mf">57.95</span><span class="p">,</span> <span class="mf">73.10</span><span class="p">,</span> <span class="mf">63.45</span><span class="p">,</span> <span class="mf">82.74</span><span class="p">,</span> <span class="mf">18.05</span><span class="p">,</span> <span class="mf">80.31</span><span class="p">,</span> <span class="mf">3.76</span><span class="p">,</span> <span class="mf">66.02</span><span class="p">,</span> <span class="mf">42.84</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">67.21</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">,</span> <span class="mf">30.45</span><span class="p">,</span> <span class="mf">10.01</span><span class="p">,</span> <span class="mf">97.86</span><span class="p">,</span> <span class="mf">6.09</span><span class="p">,</span> <span class="mf">52.75</span><span class="p">,</span> <span class="mf">19.03</span><span class="p">,</span> <span class="mf">80.13</span><span class="p">,</span> <span class="mf">48.92</span><span class="p">]])</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">num_iterations</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001182</span>
+    
+    <span class="n">w_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.01796699</span><span class="p">],</span>
+                           <span class="p">[</span><span class="o">-</span><span class="mf">0.01452442</span><span class="p">]])</span>
+    <span class="n">b_expected</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0001182</span>
+    <span class="n">costs_expected</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.69314718</span><span class="p">,]</span>
+    
+    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">costs</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">print_costs</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s">'Expected a Numpy array for w but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">w</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">w_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="s">'Unexpected shape for w. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="n">w_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">w</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w_expected</span><span class="p">),</span> <span class="s">'expected w to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">w_expected</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="s">'Expected a float for b but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b_expected</span><span class="p">),</span> <span class="s">'expected b to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">b_expected</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">costs</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s">'Expected a Python list for costs but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs_expected</span><span class="p">),</span> <span class="s">'Unexpected length for costs. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">costs_expected</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">costs</span><span class="p">,</span> <span class="n">costs_expected</span><span class="p">),</span> <span class="s">'expected costs to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">costs_expected</span><span class="p">,</span> <span class="n">costs</span><span class="p">)</span>
+
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_gradient_descent_one_iteration()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_gradient_descent_one_iteration</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_gradient_descent_one_iteration()
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_gradient_descent_multiple_iterations</span><span class="p">():</span>
+    <span class="s">""" Testcase for gradient_descent() for multiple iterations """</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">71.99</span><span class="p">,</span> <span class="mf">57.95</span><span class="p">,</span> <span class="mf">73.10</span><span class="p">,</span> <span class="mf">63.45</span><span class="p">,</span> <span class="mf">82.74</span><span class="p">,</span> <span class="mf">18.05</span><span class="p">,</span> <span class="mf">80.31</span><span class="p">,</span> <span class="mf">3.76</span><span class="p">,</span> <span class="mf">66.02</span><span class="p">,</span> <span class="mf">42.84</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">67.21</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">,</span> <span class="mf">30.45</span><span class="p">,</span> <span class="mf">10.01</span><span class="p">,</span> <span class="mf">97.86</span><span class="p">,</span> <span class="mf">6.09</span><span class="p">,</span> <span class="mf">52.75</span><span class="p">,</span> <span class="mf">19.03</span><span class="p">,</span> <span class="mf">80.13</span><span class="p">,</span> <span class="mf">48.92</span><span class="p">]])</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">num_iterations</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001182</span>
+    
+    <span class="n">w_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.01149753</span><span class="p">],</span>
+                           <span class="p">[</span><span class="o">-</span><span class="mf">0.00984429</span><span class="p">]])</span>
+    <span class="n">b_expected</span> <span class="o">=</span> <span class="mf">0.00029081894</span>
+    
+    <span class="n">costs_expected</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6931471</span><span class="p">,</span> <span class="mf">0.5818799</span><span class="p">,</span> <span class="mf">0.5573549</span><span class="p">]</span>
+
+    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">costs</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">print_costs</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s">'Expected a Numpy array for w but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">w</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">w_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="s">'Unexpected shape for w. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="n">w_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">w</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w_expected</span><span class="p">),</span> <span class="s">'expected w to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">w_expected</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="s">'Expected a float for b but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b_expected</span><span class="p">),</span> <span class="s">'expected b to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">b_expected</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">costs</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="s">'Expected a Python list for costs but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs_expected</span><span class="p">),</span> <span class="s">'Unexpected length for costs. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">costs_expected</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">costs</span><span class="p">,</span> <span class="n">costs_expected</span><span class="p">),</span> <span class="s">'expected costs to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">costs_expected</span><span class="p">,</span> <span class="n">costs</span><span class="p">)</span>
+
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_gradient_descent_multiple_iterations()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_gradient_descent_multiple_iterations</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_gradient_descent_multiple_iterations()
+</code></pre></div></div>
+
+<h2 id="3-applying-the-model">3 Applying the Model</h2>
+
+<p>You have now successfully written code to train a Logistic Regression model! Let’s try it out! Although your model can support data with an arbitrary number of features $n$, we will work with a contrived problem (but a very real application of Deep Learning) that only has two features to keep things simple and easier to visualize.</p>
+
+<h3 id="31-the-application">3.1 The Application</h3>
+
+<p>Suppose you are an engineer at Apple working on designing the <a href="https://en.wikipedia.org/wiki/Apple-designed_processors">processor</a> that will be going into the next generation flagship iPhones. Once the chips have been manufactured they are tested for defects, and defective chips are removed from being used in building iPhones. (If you want to learn more about this topic you can take ELEC402 and/or 502!)</p>
+
+<p>Now let’s say that you want to predict the likelihood that a chip is defective based on two simple tests that each yield a score of 0 to 100. Lets say you have historical data from previous generations of Apple processors, and you want to use this to train a Logistic Regression model for predicting whether chips in future generations will be defective*. Specifically, for previous generations, you have data on how those chips scored on the two tests, and whether they were truly defective as determined by a series of other sophisticated tests.</p>
+
+<p>In terms of Logistic Regression, this means each sample of your training data, $x^{(i)}$, has two features ($n=2$) and each feature can have a value from 0-100. Each sample of your training data has a label, $y$, of 1 or 0 where 1 means “is defective” and 0 means “is not defective”.</p>
+
+<p>* You’re assuming this historical data has the same distribution as future data which probably isn’t true in the case of modern processor design, but let’s pretend.  We will discuss the importance of your data distribution in future lectures.</p>
+
+<h3 id="32-load-data">3.2 Load Data</h3>
+
+<p>First, let’s load the training data that we have prepared for you. The <em>a1_tools</em> package is a package we have written to provide some useful functions for this assignment.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">a1_tools</span> <span class="kn">import</span> <span class="n">load_defect_data</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">load_defect_data</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h3 id="33-visualizing-data">3.3 Visualizing Data</h3>
+
+<p>When planning your Deep Learning strategy, you should get familiar with your data before you build anything. In practice, you should follow this advice. However, since this assignment is contrived and we knew things would work out, it’s ok that we did the opposite by building our Logistic Regression implementation first.</p>
+
+<p>Let’s look at the shape of the data.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Y</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(2, 100)
+(100,)
+</code></pre></div></div>
+
+<p>We see that there are two features and 100 samples.  Now let’s check the range of values that each feature can have.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Range of feature 0: {0} to {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]),</span> <span class="n">np</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Range of feature 1: {0} to {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]),</span> <span class="n">np</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])))</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Range of feature 0: 0.4600959463283316 to 99.17504435863123
+Range of feature 1: 0.749535805814805 to 99.90346924979494
+</code></pre></div></div>
+
+<p>And now let’s look at a few actual samples.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Sample {0}: x: {1} y: {2}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sample 0: x: [71.99781076 67.21041943] y: 0
+Sample 1: x: [57.95023465  1.41341164] y: 1
+Sample 2: x: [73.10364119 30.446759  ] y: 0
+Sample 3: x: [63.45221305 10.00601647] y: 1
+Sample 4: x: [82.73906003 97.8553762 ] y: 0
+Sample 5: x: [18.0529432   6.09483209] y: 1
+Sample 6: x: [80.30559899 52.75248849] y: 0
+Sample 7: x: [ 3.75851137 19.02962802] y: 1
+Sample 8: x: [66.02414188 80.13410361] y: 0
+Sample 9: x: [42.84290531 48.9156256 ] y: 1
+</code></pre></div></div>
+
+<p>When possible, graphically visualizing your data can often give you further insight into how to plan your Deep Learning strategy. We will use matplotlib package now to generate a scatter plot of our data. Since there are only two features, we can generate a 2D scatter plot where each feature is represented on an axis, and the color of the scatter point will denote the class (0 or 1 i.e. not defective, defective) to which the data point belongs.</p>
+
+<p><strong>Notes</strong>: The line <em>%matplotlib inline</em> is a a Jupyter notebook directive and called a <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-matplotlib">magic function</a>.  All you need to know is that this makes matplotlib show plots as images in your Jupyter notebook.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="n">mpatches</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="n">Spectral</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'test 1'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'test 2'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">mpatches</span><span class="p">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">'Not Defective'</span><span class="p">),</span>
+    <span class="n">mpatches</span><span class="p">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">.</span><span class="n">N</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">'Defective'</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Chip Defects"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_79_0.png" alt="png" /></p>
+
+<p>In the above figure, we can see that the data appears (more or less) linearly separable, meaning that, in the case of $n=2$, we can find a straight line that effectively separates the two classes. Recall that Logistic Regression finds linear partitions of the feature space.  Since the data looks linearly separable, this means that the problem is suitable for Logistic Regression. If the data were not linearly separable, you would not expect Logistic Regression to produce an accurate model, and therefore, you would know to try other machine learning techniques instead. That is why it is important to understand your data before building anything. Later in this assignment, we will look at data that is not linearly separable.</p>
+
+<h3 id="34-training-the-model-running-gradient-descent">3.4 Training the Model (Running Gradient Descent)</h3>
+
+<p>Finally, let’s run Gradient Descent and train our model!  Run the code below which executes Gradient Descent. We have picked a learning rate that works well for this problem.  We will discuss how to choose the learning rate in a future lecture.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">costs</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mf">0.001182</span><span class="p">)</span>
+
+<span class="c1"># Expected final cost: 0.22623328858976322
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Final cost: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">costs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># Expected output: 
+# [[-0.05769606]
+#  [-0.06118479]]
+</span><span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># Expected output: 5.410521971317577
+</span><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599455
+Iteration 5000 - Cost: 0.5153942149026436
+Iteration 10000 - Cost: 0.44055801893647406
+Iteration 15000 - Cost: 0.3909357144965964
+Iteration 20000 - Cost: 0.35604225850601756
+Iteration 25000 - Cost: 0.33024137268992865
+Iteration 30000 - Cost: 0.3103716613270403
+Iteration 35000 - Cost: 0.2945626967161871
+Iteration 40000 - Cost: 0.2816498643485951
+Iteration 45000 - Cost: 0.2708744549654535
+Iteration 50000 - Cost: 0.2617224818540788
+Iteration 55000 - Cost: 0.25383385024673455
+Iteration 60000 - Cost: 0.2469488831015241
+Iteration 65000 - Cost: 0.24087557983295793
+Iteration 70000 - Cost: 0.23546885895347922
+Iteration 75000 - Cost: 0.23061698602491926
+Final cost: 0.22623328858976322
+
+[[-0.05769606]
+ [-0.06118479]]
+
+5.410521971317577
+</code></pre></div></div>
+
+<h3 id="35-visualize-the-cost-during-training">3.5 Visualize The Cost During Training</h3>
+
+<p>For interest sakes, let’s see how the cost changed as Gradient Descent progressed. In practice, you want to keep an eye on this as training takes place (which could be hours to days to weeks) to ensure that the cost is actually going down.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Iteration'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Cost'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Logistic Regression Training Cost Progression"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_84_0.png" alt="png" /></p>
+
+<h3 id="36-making-predictions-with-the-model">3.6 Making predictions with the model</h3>
+
+<p>Now that you have trained the model, you can use it to make predictions! It’s as simple computing the hypothesis function $A = \sigma(w^T X + b)$ using our trained parameters, and new data.  And we already wrote this Python function in Section 2.3!</p>
+
+<p>There is one more thing to do though. Recall that although we use Logistic Regression for binary classification, the model still outputs a continuous value <strong>between</strong> 0 and 1. When using the model for prediction, we need to round its output 0 or 1.</p>
+
+<p>Complete the following code to build a Python function to perform predictions using the trained model parameters.</p>
+
+<p><strong>Hint</strong>: You may want to use the function <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.rint.html">np.rint()</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: predict
+</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">""" Use the Logistic Regression Model to make predictions
+    
+    Inputs:
+        X: NumPy array (n, m) of feature data
+        w: NumPy array (n, 1) of trained parameters w
+        b: float for trained bias parameter
+    
+    Returns:
+        NumPy array (m, ) of predictions.  Values are 0 or 1.
+    """</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="c1">### START CODE HERE ### (~1  line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">rint</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+    <span class="c1">### END CODE HERE ###
+</span>    
+    <span class="k">return</span> <span class="n">y_pred</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_predict</span><span class="p">():</span>
+    <span class="s">""" Testcase for predict() """</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">59.30</span><span class="p">,</span> <span class="mf">61.80</span><span class="p">,</span> <span class="mf">77.68</span><span class="p">,</span>  <span class="mf">9.35</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">72.73</span><span class="p">,</span> <span class="mf">68.96</span><span class="p">,</span> <span class="mf">17.92</span><span class="p">,</span> <span class="mf">35.19</span><span class="p">]])</span>
+    
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.05769606</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mf">0.06118479</span><span class="p">]])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">5.41052197</span>
+     
+    <span class="n">Y_expected</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s">'Expected a Numpy array for Y but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">Y</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">Y_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="s">'Unexpected shape for Y. Expected {0} but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+        <span class="n">Y_expected</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Y</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Y_expected</span><span class="p">),</span> <span class="s">'expected Y to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">Y_expected</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+    
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_predict()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_predict</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_predict()
+</code></pre></div></div>
+
+<p>Congratulations! You have successfully written code to train a Logistic Regression model, and used the model to predict whether a chip is defective! You’re done… no wait!</p>
+
+<p><strong>Wait!</strong></p>
+
+<p>Before you run off to your manager to say that you are now ready to predict which chips should be thrown in the trash, how confident are you in your model? I mean, if your model isn’t very accurate, you’ll end up costing the company lots of money by throwing away good chips, or worse yet, let a bunch of bad chips end up in iPhones that reach the hand of the users.  And boy, that would be a bad look for Apple! Here is a <a href="https://en.wikipedia.org/wiki/IPhone_8#Issues">case</a> where iPhones with defective logic boards made it market.</p>
+
+<p>We need to assess the quality of our trained model.  In real Deep Learning applications, this is just the starting point.  Much of developing Deep Learning applications is in iteratively assessing your model, and finding ways to improve it. This is a big topic which we will look into during the second half of the course. For now, let’s look at a couple simple ways to assess the quality of the model you just trained.</p>
+
+<h3 id="37-visualizing-the-decision-boundary">3.7 Visualizing the Decision boundary</h3>
+
+<p>Logisitic Regression is basically determining a line (for data with 2 features), as defined by the learned parameters, that separates the feature space into two partitions. The model will then hypothesize that all points in one partition (i.e. on one side of the line) will fall into the same class (e.g. defective). How <em>good</em> of a decision boundary does our trained model produce?</p>
+
+<p>Mathematically, the decision boundary is the set of points in the feature space where the model predicts a value of 0.5.  Therefore, the line for the decision boundary is simply the line that satisfies:</p>
+
+\[\sigma(w_0x_0 + w_1x_1 + b) = 0.5\]
+
+<p>Convince yourself that rearranging the above to solve for $x_1$ yields:</p>
+
+\[x_1 = -\frac{w_0x_0 + b}{w_1}\]
+
+<p>We have written the function <em>plot_decision_boundary</em> for you and you can simply call it below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">plot_decision_boundary</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">""" Plot decision boundary for 2D data
+    
+    Inputs:
+        X: NumPy array (2, m) of feature data
+        Y: NumPy array (m,)   of label data
+        w: NumPy array (n, 1) of trained parameters w
+        b: float for the bias parameter
+    """</span>
+    <span class="c1"># Plot the original data
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="n">Spectral</span><span class="p">)</span>
+    
+    <span class="c1"># Plot the decision boundary line
+</span>    <span class="c1"># Pick the extremes of x_0 (and go beyond a little bit)
+</span>    <span class="c1"># Compute x_1 for these values according to the decision
+</span>    <span class="c1"># boundary equation, and plot the line
+</span>    <span class="n">x_0</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">x_1</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x_0</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">"Decision_Boundary"</span><span class="p">)</span>
+
+    <span class="c1"># scale the plot and other formatting
+</span>    <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">axes</span><span class="p">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]),</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])])</span>
+    <span class="n">axes</span><span class="p">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]),</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])])</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'test 1'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'test 2'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_90_0.png" alt="png" /></p>
+
+<p>Hopefully you can see that the model does a pretty good job of putting all the red dots on one side of the line and blue dots on the other side. There are some dots that are on the “wrong” side, but if you look closely, you will see that there is no linear line that can perfectly separate the two classes.  This is often the case in practice for various reasons such as noise in the data, or a relationship that is not perfectly captured by the chosen features, or a relationship that is not perfectly linearly separable, etc.</p>
+
+<p>We have now qualitatively checked that our trained model seems to do pretty well.</p>
+
+<h3 id="38-measuring-accuracy">3.8 Measuring Accuracy</h3>
+
+<p>Let’s also look at how we can quantitatively assess our trained model. One common metric is accuracy.  Given a set of feature data $X$ with known labels $Y$, how accurate is the model’s predictions? Can our model achieve 100% accuracy?</p>
+
+\[accuracy = \frac{correct\_predictions}{all\_predictions}\]
+
+<p>Complete the following code to calculate the accuracy of predictions using a vectorized implementation (don’t use loops). Specifically:</p>
+
+<ul>
+  <li>Make predictions on $X$ using the trained model to get $Y_{predicted}$</li>
+  <li>Compare $Y_{predicted}$ to the actual known labels $Y$ and compute the $accuracy$</li>
+</ul>
+
+<p><strong>Hints</strong>: There are a number of ways to do this but here are some possibly useful tips</p>
+
+<ul>
+  <li>Boolean operations work on NumPy arrays.  For example, if $A$ and $B$ are arrays, $A == B$ will perform the element-wise boolean comparison</li>
+  <li>In Python and NumPy, performing arithmetic operations on boolean values (True/False) will treat the value True as numeric 1 and the value False as numeric 0.  Therefore, you may want to use <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html">np.sum()</a> and/or <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html">np.mean()</a> to help compute accuracy. You could also cast the Booleans to floats first if you want.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GRADED FUNCTION: compute_accuracy
+</span>
+<span class="k">def</span> <span class="nf">compute_accuracy</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">""" Compute the accuracy of a trained Logistic Regression 
+        model described by its trained parameters
+
+    Inputs:
+        X: NumPy array (n, m) feature data
+        Y: NumPy array (m, ) known labels for feature data X
+        w: NumPy array (n, 1) trained model parameters w
+        b: float for trained bias parameter
+    
+    Returns:
+        float between 0 and 1 denoting the accuracy of the
+        Logistic Regression model 
+    """</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c1">### START CODE HERE ### (1-2  line of code)
+</span>    <span class="c1"># YOUR CODE HERE
+</span>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span><span class="o">==</span><span class="n">Y</span><span class="p">)</span>
+    <span class="c1">### END CODE HERE ###
+</span>    <span class="k">return</span> <span class="n">accuracy</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_compute_accuracy</span><span class="p">():</span>
+    <span class="s">""" Testcase for compute_accuracy() """</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">59.30</span><span class="p">,</span> <span class="mf">61.80</span><span class="p">,</span> <span class="mf">77.68</span><span class="p">,</span>  <span class="mf">9.35</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">72.73</span><span class="p">,</span> <span class="mf">68.96</span><span class="p">,</span> <span class="mf">17.92</span><span class="p">,</span> <span class="mf">35.19</span><span class="p">]])</span>
+    
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.05769606</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mf">0.06118479</span><span class="p">]])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">5.41052197</span> 
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+    
+    <span class="n">accuracy_expected</span> <span class="o">=</span> <span class="mf">0.75</span>
+    
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">compute_accuracy</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="s">'Expected a float for accuracy but got {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">accuracy</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="p">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">accuracy_expected</span><span class="p">),</span> <span class="s">'expected db to be {0}, but got {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">accuracy_expected</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+    
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'PASSED: test_compute_accuracy()'</span><span class="p">)</span>
+
+        
+<span class="c1"># Run the test
+</span><span class="n">test_compute_accuracy</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PASSED: test_compute_accuracy()
+</code></pre></div></div>
+
+<p>Let’s compute the accuracy of our model using the same data that we used for training.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">accuracy</span> <span class="o">=</span> <span class="n">compute_accuracy</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Accuracy: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.93
+</code></pre></div></div>
+
+<p>93% accuracy sounds pretty good!  At this point, it is easy to fool ourselves into thinking that our model is very accurate.  But all we know is that the model is accurate on the data on which it was trained. If you think about it, the model was optimized using this data, so we sure would hope that the model does making predictions on it! But how well does our model generalize to data that it hasn’t seen before?  We will talk about this topic more later in the course and in future assignments. But not to be disheartened, having high accuracy on your training data is almost always a pre-requesite to achieving high accuracy on new data!</p>
+
+<p>There are other metrics aside from accuracy.  For example sensitivity and specificity. Perhaps in this scenario, you care a lot about false positives - i.e. you dont want a good chip being classified as bad and lose money that way.  Or maybe you actually care more about false negatives meaning you are more worried about bad chips being deemed as good and making its way to market.  Thinking about the right metric to monitor is important and we will talk about this more later in class.</p>
+
+<h2 id="4-try-different-hyperparameters">4 Try different Hyperparameters</h2>
+
+<p>We’ve heard briefly in class that the number of training iterations, and learning rate are called Hyperparameters.  Hyperparameters are another set of parameters (so as not to be confused with learned parameters of the model itself) that we will ultimately need to tune. In other words, how do we choose suitable values?  We will cover this topic in the second half of the course.  For now, we have picked values that work well for this assignment and data set.</p>
+
+<p>As an exercise, let’s try changing the number of iterations and learning rate and see what happens.  For convenience, we have defined the following function <em>train_and_assess()</em> which collects the pertinent code you wrote earlier. You can simply use it in the following sections.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">80000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001182</span><span class="p">):</span>
+    <span class="s">""" Trains a Logistic Regression model, then access its accuracy
+        and decision boundary on the training data.
+    
+    Inputs:
+        X: NumPy array (n, m) feature data
+        Y: NumPy array (m, ) known labels for feature data X
+        num_iterations: int for number of gradient descent iterations
+        learning_rate: float for gradient descent learning rate
+    """</span>
+    
+    <span class="c1"># Train model
+</span>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">costs</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Final Cost: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">costs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Plot Cost during training
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Iteration'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Cost'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Logistic Regression Training Cost Progression"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="c1"># Plot decision boundary 
+</span>    <span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="c1"># Print accuracy
+</span>    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">compute_accuracy</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Accuracy: {0}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="4-1-different-number-of-training-iterations">4. 1 Different Number of Training Iterations</h3>
+
+<p>Leave the learning rate at 0.001182 and try different values of training iterations. See how this affects the decision boundary and accuracy.  Suggested values to try are 1000, 10000, 300000. Or try your own value! You should see that the longer the training goes, the better the fit, and hence accuracy.  While this is generally true for training data accuracy, we will see in the future that this doesn’t mean that the model will become more accurate on data that it has never seen before.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599455
+Final Cost: 0.6060439533413233
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_101_1.png" alt="png" /></p>
+
+<p><img src="../images/jupter_a1/output_101_2.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.53
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599455
+Iteration 5000 - Cost: 0.5153942149026436
+Final Cost: 0.44056999961882887
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_102_1.png" alt="png" /></p>
+
+<p><img src="../images/jupter_a1/output_102_2.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.83
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">300000</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599455
+Iteration 5000 - Cost: 0.5153942149026436
+Iteration 10000 - Cost: 0.44055801893647406
+Iteration 15000 - Cost: 0.3909357144965964
+Iteration 20000 - Cost: 0.35604225850601756
+Iteration 25000 - Cost: 0.33024137268992865
+Iteration 30000 - Cost: 0.3103716613270403
+Iteration 35000 - Cost: 0.2945626967161871
+Iteration 40000 - Cost: 0.2816498643485951
+Iteration 45000 - Cost: 0.2708744549654535
+Iteration 50000 - Cost: 0.2617224818540788
+Iteration 55000 - Cost: 0.25383385024673455
+Iteration 60000 - Cost: 0.2469488831015241
+Iteration 65000 - Cost: 0.24087557983295793
+Iteration 70000 - Cost: 0.23546885895347922
+Iteration 75000 - Cost: 0.23061698602491926
+Iteration 80000 - Cost: 0.22623245352193602
+Iteration 85000 - Cost: 0.2222457012545943
+Iteration 90000 - Cost: 0.21860069756438572
+Iteration 95000 - Cost: 0.2152517686430309
+Iteration 100000 - Cost: 0.21216128308612014
+Iteration 105000 - Cost: 0.209297933890655
+Iteration 110000 - Cost: 0.20663544519265156
+Iteration 115000 - Cost: 0.20415158582894186
+Iteration 120000 - Cost: 0.20182740780628472
+Iteration 125000 - Cost: 0.19964665185728592
+Iteration 130000 - Cost: 0.19759527866932153
+Iteration 135000 - Cost: 0.19566109572080181
+Iteration 140000 - Cost: 0.19383345762332702
+Iteration 145000 - Cost: 0.19210302353355652
+Iteration 150000 - Cost: 0.1904615592793281
+Iteration 155000 - Cost: 0.18890177481842224
+Iteration 160000 - Cost: 0.18741718983935535
+Iteration 165000 - Cost: 0.18600202194429116
+Iteration 170000 - Cost: 0.1846510930795275
+Iteration 175000 - Cost: 0.1833597508080859
+Iteration 180000 - Cost: 0.18212380172932421
+Iteration 185000 - Cost: 0.18093945489797997
+Iteration 190000 - Cost: 0.17980327352023723
+Iteration 195000 - Cost: 0.17871213353687884
+Iteration 200000 - Cost: 0.17766318796537603
+Iteration 205000 - Cost: 0.17665383608018767
+Iteration 210000 - Cost: 0.17568169667587266
+Iteration 215000 - Cost: 0.17474458479020283
+Iteration 220000 - Cost: 0.17384049137130228
+Iteration 225000 - Cost: 0.17296756545945177
+Iteration 230000 - Cost: 0.17212409852470478
+Iteration 235000 - Cost: 0.1713085106591715
+Iteration 240000 - Cost: 0.170519338370251
+Iteration 245000 - Cost: 0.16975522376024857
+Iteration 250000 - Cost: 0.16901490491026205
+Iteration 255000 - Cost: 0.16829720731324854
+Iteration 260000 - Cost: 0.16760103622373357
+Iteration 265000 - Cost: 0.16692536981055714
+Iteration 270000 - Cost: 0.1662692530149719
+Iteration 275000 - Cost: 0.1656317920298453
+Iteration 280000 - Cost: 0.16501214932711547
+Iteration 285000 - Cost: 0.16440953917031986
+Iteration 290000 - Cost: 0.1638232235572566
+Iteration 295000 - Cost: 0.16325250854490608
+Final Cost: 0.16269685061547345
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_103_1.png" alt="png" /></p>
+
+<p><img src="../images/jupter_a1/output_103_2.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.97
+</code></pre></div></div>
+
+<h3 id="42-different-learning-rate">4.2 Different Learning Rate</h3>
+
+<p>The learning rate dictates the rate of change in the parameters on each iteration of training.</p>
+
+<h4 id="421-learning-rate-too-small">4.2.1 Learning Rate too small</h4>
+
+<p>Try a smaller training rate like 0.0001.  What you should see is that the cost reduces at a much slower rate.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599455
+Iteration 5000 - Cost: 0.6222733228767586
+Iteration 10000 - Cost: 0.6102652106047033
+Iteration 15000 - Cost: 0.5987498881646406
+Iteration 20000 - Cost: 0.5877062661443969
+Iteration 25000 - Cost: 0.5771137180740221
+Iteration 30000 - Cost: 0.5669521497512449
+Iteration 35000 - Cost: 0.5572020548174487
+Iteration 40000 - Cost: 0.5478445577416055
+Iteration 45000 - Cost: 0.5388614454464379
+Iteration 50000 - Cost: 0.5302351888369781
+Iteration 55000 - Cost: 0.5219489554769087
+Iteration 60000 - Cost: 0.513986614612204
+Iteration 65000 - Cost: 0.5063327356732412
+Iteration 70000 - Cost: 0.49897258130316224
+Iteration 75000 - Cost: 0.4918920958679521
+Final Cost: 0.4850792273857302
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_105_1.png" alt="png" /></p>
+
+<p><img src="../images/jupter_a1/output_105_2.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.82
+</code></pre></div></div>
+
+<h4 id="422-learning-rate-too-big">4.2.2 Learning Rate too big</h4>
+
+<p>Now try a larger learning rate of 0.002, but set the number of iterations to 100.  We choose a smaller number of iterations just so we can get a clearer plot of the change in cost.  You should see the cost oscillating but still trending downwards.  The oscillating behaviour also slows down the rate at which the cost decreases.  Do you remember from lecture why this oscillating behaviour occurs?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599455
+Final Cost: 0.6852303906438636
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_107_1.png" alt="png" /></p>
+
+<p><img src="../images/jupter_a1/output_107_2.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.62
+</code></pre></div></div>
+
+<h2 id="5-data-that-is-not-linearly-separable">5. Data that is not linearly separable</h2>
+
+<p>In this assignment, you have built a Logistic Regression training and prediction system!  We have learned that Logistic Regression works well for data that is linearly separable. However, many problems exist where this isn’t the case. In other words, the decision boundary in those cases isn’t a straight line (for 2D data).  This is motivation for using Neural Networks (Assignment 2) which has the power to learn non-linear decision boundaries.  And furthermore, Deep Neural Networks (Assignment 3) have the power to learn even more complex non-linearities.</p>
+
+<p>To convince you, we have prepared a few data sets that are not linearly separable.  Try training your Logistic Regression model on them and see what kind of accuracy you can get.  You should see that when restricted to a linear decision boundary, you cannot get high accuracy.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">a1_tools</span> <span class="kn">import</span> <span class="n">load_swirls</span><span class="p">,</span> <span class="n">load_noisy_circles</span><span class="p">,</span> <span class="n">load_noisy_moons</span><span class="p">,</span> <span class="n">load_partitioned_circles</span>
+
+<span class="c1"># Uncomment only one of these lines to load the desired data set
+# X, Y = load_swirls()
+# X, Y = load_noisy_circles()
+# X, Y = load_noisy_moons()
+</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">load_partitioned_circles</span><span class="p">()</span>
+
+
+<span class="c1"># Plot the data
+</span><span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="n">Spectral</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Now train and assess.  NOTE: The default learning rate and number of
+# training iterations were tuned for our linearly separable data set
+# you may want to play around with those numbers.
+</span><span class="n">train_and_assess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_109_0.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Iteration 0 - Cost: 0.6931471805599453
+Iteration 5000 - Cost: 0.6924188005225229
+Final Cost: 0.6924188005225229
+</code></pre></div></div>
+
+<p><img src="../images/jupter_a1/output_109_2.png" alt="png" /></p>
+
+<p><img src="../images/jupter_a1/output_109_3.png" alt="png" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accuracy: 0.54375
+</code></pre></div></div>
+
+<h2 id="6-conclusion">6. Conclusion</h2>
+
+<p>Congratulations on completing your first assignment! It was a long one, but we have covered a lot of material that will let us move faster in the following assignments.</p>
+
+<p>In this assignment, you have:</p>
+
+<ul>
+  <li>Learned to use various practical tools used in Deep Learning implementations such as Python, Jupyter Notebooks, NumPy, matplotlib.</li>
+  <li>Learned to use NumPy to work with arrays, use its various functions, and uses its various mechanisms such as vectorization and Broadcasting.</li>
+  <li>Built a complete Logistic Regression system that that can be used to train on data of any number of features!</li>
+  <li>Explored some of the considerations when training (e.g. choosing hyperparameters)</li>
+  <li>Explored qualitative and quantitative techniques for assessing the quality of your trained model</li>
+</ul>
+
+<p>In the next assignment, you will follow the same framework to build your first Neural Network!</p>
+
+<p>Thank you to Singulos Research for feedback, suggestions, and testing of this assignment.</p>
+
+</div>
+
+
+
+<!-- Parse the Latex divs with Katex-->
+<script type="text/javascript">
+  $("script[type='math/tex']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex, {displayMode: false});
+  });
+  
+  $("script[type='math/tex; mode=display']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+  });
+</script>
+
+
+<!-- Always create iframes to embed videos if present. See: http://semantic-ui.com/modules/embed.html -->
+
+<script>
+  $('.ui.embed').embed();
+</script>
+
+
+    
+
+<!-- Parse the Latex divs with Katex-->
+<script type="text/javascript">
+  $("script[type='math/tex']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex, {displayMode: false});
+  });
+  
+  $("script[type='math/tex; mode=display']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+  });
+</script>
+
+
+<!-- Always create iframes to embed videos if present. See: http://semantic-ui.com/modules/embed.html -->
+
+<script>
+  $('.ui.embed').embed();
+</script>
+
+
+  </body>
+
+</html>
