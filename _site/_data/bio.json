@@ -2,10 +2,10 @@
   "basics": {
     "name": "Jason Fakidis",
     "label": "Electrical and Computer Engineer",
-    "picture": "https://techfolios.github.io/template/images/molly.png",
-    "email": "jason@jasonfakidis.com",
+    "picture": "/images/jason_small.png",
+    "email": "jfakidis@gmail.org",
     "phone": "604-868-3435",
-    "website": "www.jasonfakidis.com",
+    "website": "fjakidis.github.io",
     "summary": "Recent graduate in electrical and computer engineering from the University of British Columbia",
     "location": {
       "address": "",
@@ -17,23 +17,13 @@
     "profiles": [
       {
         "network": "github",
-        "username": "mmaluhia",
-        "url": "http://github.com/changeme"
+        "username": "fjakidis",
+        "url": "http://github.com/fjakidis"
       },
       {
         "network": "linkedin",
-        "username": "mollymaluhia",
-        "url": "http://linkedin.com/in/changeme"
-      },
-      {
-        "network": "twitter",
-        "username": "mollymal",
-        "url": "http://twitter.com/changeme"
-      },
-      {
-        "network": "instagram",
-        "username": "molly",
-        "url": "http://instagram.com/changeme"
+        "username": "jason-fakidis",
+        "url": "http://linkedin.com/in/jason-fakidis"
       }
     ]
   },
@@ -177,36 +167,24 @@
       "position": "Chair",
       "startDate": "2020-09",
       "endDate": "2021-05",
-      "summary": "Senior leadership responsible for complete operations of the branch",
+      "summary": "Elected senior branch representative.",
       "highlights": [
-        "Design firmware for distributed weather sensor network",
-        "Maintain custom data collection and storage infrastructure"
+        "Oversaw successful delivery of 3+ student outreach events",
+        "Liason between our branch, local regional branches and other university student branches",
+        "Provide mentorship to branch senior executives, new members and adminstrators"
       ]
     },
     {
       "organization": "UBC IEEE Student Chapter",
       "website": "http://www.ubcieee.org/",
-      "position": "Society Chair (Technology and Engineering Management)",
+      "position": "Society Manager (Technology and Engineering Management)",
       "startDate": "2018-09",
       "endDate": "2019-09",
       "summary": "Responsible for coordinating networking events for the TEMS society",
       "highlights": [
-        "Chair, ACM Manoa, 2016-Present",
-        "Member, IEEE Student Branch, 2014-Present",
-        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
-      ]
-    },
-    {
-      "organization": "UBC Formula Electric (Engineering Team)",
-      "website": "https://www.formulaubc.com/#!",
-      "position": "Analog Hardware Developer",
-      "startDate": "2018-09",
-      "endDate": "2019-09",
-      "summary": "Engineering design team focussing on electric formula vehicles",
-      "highlights": [
-        "Chair, ACM Manoa, 2016-Present",
-        "Member, IEEE Student Branch, 2014-Present",
-        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
+        "Marketed, organized and delivered a successful Project Management workshop with over 40 attendees",
+        "Managed a small team of volunteers responsible for assisting with delivery of the event",
+        "Coordinated with industry professionals and company representatives"
       ]
     },
     {
@@ -215,11 +193,24 @@
       "position": "Embedded Firmware Engineer",
       "startDate": "2016-09",
       "endDate": "2018-09",
-      "summary": "Engineering design team focussing on CubeSat satellite developement",
+      "summary": "Engineering design team focussing on CubeSat miniature satellite developement",
       "highlights": [
-        "Chair, ACM Manoa, 2016-Present",
-        "Member, IEEE Student Branch, 2014-Present",
-        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
+        "Design and implement embedded system test environment with Qualcomm mobile processor",
+        "Write low-level algorithms used to run machine-learning algorithms on processor internal DSP",
+        "Design neural networks for image recognition in python"
+      ]
+    },
+    {
+      "organization": "UBC Formula Electric (Engineering Team)",
+      "website": "https://www.formulaubc.com/",
+      "position": "Analog Hardware Developer",
+      "startDate": "2018-09",
+      "endDate": "2019-09",
+      "summary": "Engineering design team focussing on producing fully electric formula racing vehicles",
+      "highlights": [
+        "Designed and tested analog-based LED driver",
+        "PCB design for the analog circuitry",
+        "Research and order components from international distributors"
       ]
     }
   ],

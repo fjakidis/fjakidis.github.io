@@ -9,7 +9,7 @@
 
   <title>
     
-      Natural language processing with recurrent neural networks |
+      Deep Learning |
     
     Jason Fakidis | Professional Portfolio
   </title>
@@ -57,20 +57,46 @@
       <img class="ui avatar image" src="/images/jason_small.png"><span>Jason Fakidis</span>
     </a>
     
-    <a href="/projects" class="  active item">Projects (3)</a>
+    <a href="/projects" class=" item">Projects (3)</a>
     
     
-    <a href="/essays" class="  item">Essays (4)</a>
+    <a href="/essays" class="  active  item">Essays (4)</a>
     
     <a href="/bio" class="  item">Resume</a>
   </nav>
 </div>
 
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
- <h1>Natural language processing with recurrent neural networks</h1>
- 
+  <h1>Deep Learning</h1>
+  <span class="date">26 Aug 2015</span>
+  <hr>
+  
 
 </div>
+
+
+
+<!-- Parse the Latex divs with Katex-->
+<script type="text/javascript">
+  $("script[type='math/tex']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex, {displayMode: false});
+  });
+  
+  $("script[type='math/tex; mode=display']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+  });
+</script>
+
+
+<!-- Always create iframes to embed videos if present. See: http://semantic-ui.com/modules/embed.html -->
+
+<script>
+  $('.ui.embed').embed();
+</script>
 
 
     
