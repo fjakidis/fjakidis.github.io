@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-06-17T14:23:21-07:00</updated><id>/feed.xml</id><subtitle></subtitle><entry><title type="html">ESP32</title><link href="/hardware/2021/06/17/esp32.html" rel="alternate" type="text/html" title="ESP32" /><published>2021-06-17T09:46:36-07:00</published><updated>2021-06-17T09:46:36-07:00</updated><id>/hardware/2021/06/17/esp32</id><content type="html" xml:base="/hardware/2021/06/17/esp32.html">&lt;p&gt;https://hackaday.com/2016/10/04/how-to-get-started-with-the-esp32/
+https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/bootloader.html&lt;/p&gt;</content><author><name></name></author><category term="hardware" /><category term="Hardware" /><summary type="html">https://hackaday.com/2016/10/04/how-to-get-started-with-the-esp32/ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/bootloader.html</summary></entry><entry><title type="html">Balls</title><link href="/hardware/2021/06/17/coding-interview.html" rel="alternate" type="text/html" title="Balls" /><published>2021-06-17T09:46:36-07:00</published><updated>2021-06-17T09:46:36-07:00</updated><id>/hardware/2021/06/17/coding-interview</id><content type="html" xml:base="/hardware/2021/06/17/coding-interview.html"></content><author><name></name></author><category term="hardware" /><category term="Coding Interview" /><summary type="html"></summary></entry><entry><title type="html">Git reference</title><link href="/hardware/1970/01/01/coding-interview-copy.html" rel="alternate" type="text/html" title="Git reference" /><published>1970-01-01T00:00:00-08:00</published><updated>1970-01-01T00:00:00-08:00</updated><id>/hardware/1970/01/01/coding-interview%20copy</id><content type="html" xml:base="/hardware/1970/01/01/coding-interview-copy.html">&lt;h2 id=&quot;creating-or-cloning-a-repository&quot;&gt;Creating or Cloning a Repository&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
+git clone &amp;lt;address.git&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;modifying-the-repository&quot;&gt;Modifying the Repository&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &amp;lt;file&amp;gt;
+git commit -m &apos;description&apos;
+git status
+git log --oneline
+git diff &amp;lt;commit_one&amp;gt; &amp;lt;commit_two&amp;gt;
+git branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;undoing-changes&quot;&gt;Undoing Changes&lt;/h2&gt;
+
+&lt;p&gt;Remove a staged file from the staging area.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset HEAD file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Revert a file to previous commit&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout -- &amp;lt;file&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Revert repository to a previous commit&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset --hard &amp;lt;previous commit&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="hardware" /><category term="Git" /><category term="Github" /><category term="Version Control" /><summary type="html">Creating or Cloning a Repository git init git clone &amp;lt;address.git&amp;gt;</summary></entry></feed>

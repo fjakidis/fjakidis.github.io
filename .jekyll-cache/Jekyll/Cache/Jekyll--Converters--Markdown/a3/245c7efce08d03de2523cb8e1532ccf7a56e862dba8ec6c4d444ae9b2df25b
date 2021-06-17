@@ -1,0 +1,222 @@
+I"<hr />
+<hr />
+
+<h1 id="outline">Outline:</h1>
+<ul>
+  <li><a href="#project-management">Project Management</a></li>
+  <li>
+    <ul>
+      <li><a href="#project-management-time">Time</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#project-management-cost">Cost</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#project-management-scope">Scope</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#project-management-resources">Resources</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#project-management-risk">Risk</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#project-management-quality">Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#design-process">Design Process</a></li>
+  <li><a href="#bill-of-materials">Bill of Materials</a></li>
+  <li><a href="#component-analysis">Component Analysis</a></li>
+  <li>
+    <ul>
+      <li><a href="#component-analysis-l298n">l298N Breakout</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#component-analysis-encoder">Rotary Encoder</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#component-analysis-nema">Nema 17 Stepper Motor</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li><a href="#component-analysis-raspberrypi">Rapsberry Pi 4</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<hr />
+
+<h2 id="project-management">Project Management</h2>
+<p>2020-12-30</p>
+
+<ul>
+  <li>Time  (T) =</li>
+  <li>Cost  (C) =</li>
+  <li>
+    <p>Scope (S) =</p>
+  </li>
+  <li>Resources (R) =</li>
+  <li>Risk      (P) =</li>
+  <li>Quality   (Q) =</li>
+</ul>
+
+<h3 id="project-management-time">Time</h3>
+
+<h3 id="project-management-cost">Cost</h3>
+
+<h3 id="project-management-scope">Scope</h3>
+<ul>
+  <li>Project Schematic</li>
+  <li>Bill of Materials</li>
+  <li>Documentation of Components</li>
+  <li>Set of demonstration tests</li>
+</ul>
+
+<h3 id="project-management-resources">Resources</h3>
+
+<blockquote>
+  <ol>
+    <li>Kicad</li>
+  </ol>
+</blockquote>
+
+<h3 id="project-management-risk">Risk</h3>
+
+<h3 id="project-management-quality">Quality</h3>
+
+<hr />
+<hr />
+
+<h2 id="bill-of-materials">Bill of Materials</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Component</th>
+      <th style="text-align: center">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B07JM9YRTQ/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&amp;psc=1">Rotary Encoder</a></td>
+      <td style="text-align: center">28.99</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B00MNV8E0C/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1">Batteries</a></td>
+      <td style="text-align: center">17.77</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B07BNMKNQX/ref=ppx_yo_dt_b_asin_title_o00_s01?ie=UTF8&amp;psc=1">Battery Holders</a></td>
+      <td style="text-align: center">12.99</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B01EV70C78/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1">Hook Up Wire</a></td>
+      <td style="text-align: center">13.99</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B073S5GM6Q/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1">Worm Gear Motor</a></td>
+      <td style="text-align: center">27.79</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B00CAG6GX2/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;psc=1">L298N Motor Driver</a></td>
+      <td style="text-align: center">13.98</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B07YCWRZ8P/ref=ppx_yo_dt_b_asin_title_o01_s01?ie=UTF8&amp;psc=1">Raspberry Pi Model 4</a></td>
+      <td style="text-align: center">149.99</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://www.amazon.ca/gp/product/B07425G6D6/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&amp;psc=1">Raspberry Pi GPIo Breakout Cable</a></td>
+      <td style="text-align: center">11.99</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Total</strong></td>
+      <td style="text-align: center">277.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<hr />
+<h2 id="design-process">Design Process</h2>
+
+<h3 id="schematic">Schematic</h3>
+
+<h3 id="pid">PID</h3>
+
+<h3 id="demonstration">Demonstration</h3>
+
+<h4 id="limitations">Limitations</h4>
+
+<hr />
+<hr />
+<h2 id="component-analysis">Component Analysis</h2>
+
+<h3 id="component-analysis-l298n">L298N Breakout</h3>
+
+<p><img src="https://images-na.ssl-images-amazon.com/images/I/71Zb8MKCTtL._SL1500_.jpg" width="200" height="200" /></p>
+
+<p><a href="https://www.st.com/resource/en/datasheet/l298.pdf">Datasheet</a></p>
+
+<h3 id="component-analysis-encoder">Rotary Encoder</h3>
+
+<p><img src="https://images-na.ssl-images-amazon.com/images/I/61C0Cj7TiUL._AC_SL1001_.jpg" width="200" height="200" /></p>
+
+<p>Information</p>
+<ul>
+  <li>Output :AB 2phase output rectangular orthogonal pulse circuit, the output for the NPN open collector output type (needs pull-ups)</li>
+  <li>AB 2phase output must not be directly connected with VCC, otherwise, will burn the output triode, because different batches, and may not have the terminal.(Green = A phase, white = B phase, red = Vcc power +, black = V0)​</li>
+  <li>Voltage - DC 5-24 V</li>
+</ul>
+
+<h3 id="component-analysis-nema">Nema 17 Stepper Motor</h3>
+
+<p><img src="https://robu.in/wp-content/uploads/2017/12/ROBU-5.jpg" width="200" height="200" /></p>
+
+<p><img src="http://www.robotdigg.com/crab/image/2017/04/26/298d5b8abefcf8769a09fac124da0619.jpeg" width="800" height="400" /></p>
+
+<p>Information</p>
+<ul>
+  <li>Rated voltage (4.54 V)</li>
+  <li>Rated Current (0.84 A)</li>
+</ul>
+
+<h3 id="component-analysis-raspberrypi">Raspberry Pi 4</h3>
+
+<p><img src="https://images-na.ssl-images-amazon.com/images/I/41lgsFPaTnL._AC_.jpg" width="300" height="200" /></p>
+
+<p>Logic levels 3.3V</p>
+
+<p>Output</p>
+<ul>
+  <li>Total max current (all pinis) 50 mA</li>
+  <li>Default 8 mA max per pin</li>
+  <li>Don’t drive capacitive loads</li>
+</ul>
+
+<p>Input</p>
+<ul>
+  <li>Threshold of 1.8V</li>
+  <li>Max of 0.5 mA</li>
+  <li>Use 6 KOhm res to ensure 3.3V source cannot exceed 0.5 mA (3.3 V / 6000 Ohm = 0.00055 A)</li>
+</ul>
+
+<hr />
+<hr />
+:ET
